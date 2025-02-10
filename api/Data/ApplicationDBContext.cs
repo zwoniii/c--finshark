@@ -3,9 +3,14 @@ using Microsoft.EntityFrameworkCore;
 
 namespace api.Data
 {
-    public class ApplicationDbContext(DbContextOptions dbContextOptions) : DbContext(dbContextOptions)
+    public class ApplicationDbContext : DbContext
     {
-        public DbSet<Stock> Stock { get; set; }
+        public ApplicationDbContext(DbContextOptions DbContextOptions) : base(DbContextOptions)
+        {
+            
+        }
+        
+        public DbSet<Stock> Stocks { get; set; }
         public DbSet<Comment> Comments { get; set; }
     }
 }
